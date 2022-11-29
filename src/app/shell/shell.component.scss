@@ -1,0 +1,20 @@
+.wrapper{
+    overflow: hidden;
+}
+
+.nav-bar{
+    display: flex;
+    width: 100vw;
+    margin-inline: 15vw;
+    padding-block: .5rem;
+    background-color: transparent;
+    gap: 40%;
+    h1{
+        margin-block: auto;
+    }
+}
+
+.actions{
+    display: flex;
+    gap: 1rem;
+}

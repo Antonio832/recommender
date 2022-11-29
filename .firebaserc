@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "recommendersystem-8431c": {
+      "hosting": {
+        "recomender": [
+          "recommendersystem-8431c"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "recommendersystem-8431c"
+  }
+}

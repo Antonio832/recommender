@@ -1,0 +1,7 @@
+{
+  "/api/*": {
+    "target": "https://us-central1-recommendersystem-8431c.cloudfunctions.net/recommenderAPI",
+    "secure": false,
+    "logLevel": "debug"
+  }
+}

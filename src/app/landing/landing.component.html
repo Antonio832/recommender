@@ -1,0 +1,49 @@
+<div class="hero-wrapper">
+    <div class="hero">
+        <div class="left">
+            <h1>Recomendador de trabajos</h1>
+            <h3>Obten recomendaciones en base a tus intereses.</h3>
+            <a href="#recom">
+                <button mat-raised-button>Pruebalo</button>
+            </a>
+        </div>
+        <div class="right"></div>
+    </div>
+</div>
+<div class="cards">
+    <landing-card *ngFor="let card of cards" [card]="card"></landing-card>
+</div>
+<div class="features" id="recom">
+    <h1>Selecciona tus intereses:</h1>
+    <mat-form-field appearance="outline" class="inputSelect">
+        <mat-label>Temas</mat-label>
+        <input
+            matInput
+            autocomplete="off"
+            [(ngModel)]="selectTextBox"
+            placeholder="Python, C++, Javascript"
+        />
+    </mat-form-field>
+    <div *ngIf="selected.length" class="selectedList"> 
+        <h3>
+            Seleccionados ({{selected.length}}/3): 
+        </h3>
+        <mat-chip-list>
+            <mat-chip *ngFor="let item of selected">
+                {{item}}
+            </mat-chip>
+        </mat-chip-list>
+        <button 
+            style="margin-block: 1rem;" 
+            mat-raised-button 
+            *ngIf="selected.length >= 3" 
+            (click)="recomend()"
+        >
+            Obtener recomendacion
+        </button>
+        <!-- <div *ngFor="let item of selected">{{item}}<div *ngIf="selected.length -1">, </div></div> -->
+    </div>
+    <div class="buttons">
+        <app-button-cluster [items]="selected" (onBtnToggle)="setitems($event)"></app-button-cluster>
+    </div>
+</div>

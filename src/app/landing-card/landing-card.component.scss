@@ -1,0 +1,11 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid black;
+    padding: .5rem;
+    border-radius: 1rem;
+    h2{
+        margin-inline: auto;
+    }
+}

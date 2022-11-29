@@ -1,0 +1,11 @@
+<div class="cluster" #cluster>
+    <mat-button-toggle 
+        #btn 
+        class="item-cluster"
+        *ngFor="let item of topicsArr" 
+        (click)="changeValue(btn)"
+        [value]="item"
+    >
+        {{item}}
+    </mat-button-toggle>
+</div>

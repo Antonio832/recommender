@@ -1,0 +1,13 @@
+.cluster{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    width: 75vw;
+}
+
+.mat-button-toggle-group{
+    height: 1rem;
+    align-items: center;
+}
