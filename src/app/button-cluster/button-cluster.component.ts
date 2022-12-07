@@ -1,5 +1,7 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { doc, Firestore } from '@angular/fire/firestore';
 import { MatButtonToggle, MatButtonToggleGroup } from '@angular/material/button-toggle';
+import { collection, deleteDoc, getDocs, limit, orderBy, query, where } from '@firebase/firestore';
 
 @Component({
   selector: 'app-button-cluster',
@@ -8,7 +10,7 @@ import { MatButtonToggle, MatButtonToggleGroup } from '@angular/material/button-
 })
 export class ButtonClusterComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
+  constructor(private db: Firestore) { }
 
   @Input() items!: any[]
 
@@ -26,261 +28,36 @@ export class ButtonClusterComponent implements OnInit, AfterViewInit {
     // await this.clusterRef[0].check
   }
 
-  ngOnInit(): void {
-    fetch('https://random-word-api.herokuapp.com/word?number=100').then(res=>{
-      res.json().then(words=>{
-        this.topicsArr = words
-      })
+
+  topicsArr: any[] = []
+
+  lastDoc: any
+
+  async ngOnInit() {
+    this.topicsArr = [
+      {
+        name: 'AI'
+      },
+      {
+        name: 'Angular'
+      },
+      {
+        name: 'React'
+      },
+    ]
+    return 
+    const skillsRef = collection(this.db,'skills')
+    let compQuery = query(skillsRef, orderBy('name', 'asc'), limit(50))
+    let querySnap = await getDocs(compQuery)
+    querySnap.forEach(doc=>{
+      this.topicsArr.push({...doc.data(), docRef: doc.id})
     })
   }
 
-  topicsArr = [
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-  ]
-
+  
   changeValue(btnToggle: MatButtonToggle){
     if(btnToggle.checked && !this.items.includes(btnToggle.value)){
       this.items.push(btnToggle.value)
-      console.log(this.items)
       return this.onBtnToggle.emit(this.items)
     }
     if(!btnToggle.checked){

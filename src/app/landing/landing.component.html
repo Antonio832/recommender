@@ -7,7 +7,11 @@
                 <button mat-raised-button>Pruebalo</button>
             </a>
         </div>
-        <div class="right"></div>
+        <div class="right">
+            <div class="btn-cluster">
+                <mat-button-toggle *ngFor="let item of heroArr">{{item}}</mat-button-toggle>
+            </div>
+        </div>
     </div>
 </div>
 <div class="cards">
@@ -30,7 +34,7 @@
         </h3>
         <mat-chip-list>
             <mat-chip *ngFor="let item of selected">
-                {{item}}
+                {{item.name}}
             </mat-chip>
         </mat-chip-list>
         <button 
@@ -47,3 +51,4 @@
         <app-button-cluster [items]="selected" (onBtnToggle)="setitems($event)"></app-button-cluster>
     </div>
 </div>
+<div class="trigger"></div>

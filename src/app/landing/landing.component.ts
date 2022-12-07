@@ -15,247 +15,17 @@ export class LandingComponent implements OnInit {
 
   selectTextBox = '' 
 
-  topicsArr = [
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
-    {
-      txt: 'Python',
-      val: 'python'
-    },
-    {
-      txt: 'C++',
-      val: 'C++'
-    },
-    {
-      txt: 'Javascript',
-      val: 'Javascript'
-    },
+  heroArr = [
+    'Ruby',
+    'AWS',
+    'redhat',
+    'data analytics',
+    'embeded',
+    'R',
+    'information security',
+    'Python',
+    'React.js',
+    'Networking',
   ]
 
   cards = [
@@ -298,18 +68,10 @@ export class LandingComponent implements OnInit {
   }
 
   setitems(arr: any[] = []){
-    console.log(this.selected)
     this.selected = [...arr]
   }
 
   recomend(){
-    fetch('https://us-central1-recommendersystem-8431c.cloudfunctions.net/recommenderAPI?skills=Python,R,Javascript,Flutter').then(res=>{
-      console.log(res)
-      res.json().then(resp=>{
-        console.log(resp)
-      })
-    })
-    return 
     const dialogRef = this.dialog.open(ReomendacionComponent,{
       data: [...this.selected]
     })

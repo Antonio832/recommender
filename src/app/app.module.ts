@@ -8,6 +8,7 @@ import { MatChipsModule } from '@angular/material/chips'
 import { MatIconModule } from '@angular/material/icon'
 import { MatButtonToggleModule } from '@angular/material/button-toggle'
 import { MatDialogModule } from '@angular/material/dialog'
+import { MatCardModule } from '@angular/material/card'
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 
@@ -42,6 +43,7 @@ import { HttpClientModule } from '@angular/common/http'
     MatInputModule,
     HttpClientModule,
     MatDialogModule,
+    MatCardModule,
     MatFormFieldModule,
     ReactiveFormsModule,
     FormsModule,
